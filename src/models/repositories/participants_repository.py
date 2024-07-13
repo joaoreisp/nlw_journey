@@ -10,7 +10,7 @@ class ParticipantsRepository:
     cursor.execute(
       '''
         INSERT INTO participants
-          (id, trip_id, emails_to _invite_id, name)
+          (id, trip_id, emails_to_invite_id, name)
         VALUES
           (?, ?, ?, ?)
       ''',(
@@ -22,7 +22,7 @@ class ParticipantsRepository:
     )
     self.__conn.commit()
     
-  def find_participant_from_trip(self, trip_id: str) -> List[Tuple]:
+  def find_participants_from_trip(self, trip_id: str) -> List[Tuple]:
     cursor = self.__conn.cursor()
     cursor.execute(
       '''
